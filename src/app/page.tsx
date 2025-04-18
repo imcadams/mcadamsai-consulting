@@ -4,49 +4,44 @@ import {
   ServerStackIcon,
 } from "@heroicons/react/24/outline";
 import Navbar from "@/components/Navbar";
-import ServiceCard, { ServiceCardProps } from "@/components/ServiceCard";
+import ServiceCard from "@/components/ServiceCard";
 import CaseStudyAccordion from "@/components/CaseStudyAccordion";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import TechStackBadge from "@/components/TechStackBadge";
 
 export default function Home() {
   const services = [
     {
-      service: {
-        title: "Enterprise GenAI Systems",
-        icon: CpuChipIcon,
-        description:
-          "Production-grade implementations using GPT-4o and Claude 3.5",
-        features: [
-          "Multi-agent architectures",
-          "RAG pipelines",
-          "LLM evaluation frameworks",
-        ],
-      },
+      title: "Enterprise GenAI Systems",
+      icon: CpuChipIcon,
+      description:
+        "Production-grade implementations using GPT-4o and Claude 3.5",
+      features: [
+        "Multi-agent architectures",
+        "RAG pipelines",
+        "LLM evaluation frameworks",
+      ],
     },
     {
-      service: {
-        title: "AI Process Automation",
-        icon: ServerStackIcon,
-        description: "Agentic workflows for business operations",
-        features: [
-          "AWS Bedrock Agents",
-          "Azure AI Studio",
-          "Custom embeddings",
-        ],
-      },
+      title: "AI Process Automation",
+      icon: ServerStackIcon,
+      description: "Agentic workflows for business operations",
+      features: [
+        "AWS Bedrock Agents",
+        "Azure AI Studio",
+        "Custom embeddings",
+      ],
     },
     {
-      service: {
-        title: "Technical Leadership",
-        icon: CodeBracketIcon,
-        description: "Architecture design & team enablement",
-        features: [
-          "GenAI strategy",
-          "Technical debt reduction",
-          "Mentorship programs",
-        ],
-      },
+      title: "Technical Leadership",
+      icon: CodeBracketIcon,
+      description: "Architecture design & team enablement",
+      features: [
+        "GenAI strategy",
+        "Technical debt reduction",
+        "Mentorship programs",
+      ],
     },
   ];
 
@@ -86,8 +81,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service) => (
               <ServiceCard
-                key={service.service.title}
-                service={service.service}
+                key={service.title}
+                service={service}
               />
             ))}
           </div>
@@ -123,25 +118,5 @@ export default function Home() {
       </main>
       <Footer />
     </>
-  );
-}
-
-// TechStackBadge component (inline for simplicity)
-function TechStackBadge({ name, color }: { name: string; color: string }) {
-  const colorClasses = {
-    orange:
-      "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
-    blue: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    green: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    purple:
-      "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-  };
-
-  return (
-    <span
-      className={`${colorClasses[color]} px-4 py-2 rounded-full text-sm font-medium`}
-    >
-      {name}
-    </span>
   );
 }
