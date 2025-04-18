@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+// next.config.js
+const { withPlausibleProxy } = require('next-plausible')
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'standalone',
+  images: {
+    domains: ['images.ctfassets.net'],
+  }
+}
 
-export default nextConfig;
+module.exports = withPlausibleProxy()(nextConfig)
